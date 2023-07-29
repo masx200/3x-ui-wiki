@@ -297,6 +297,6 @@ systemctl daemon-reload
 
 ## 17 - چجوری مشکل خطای database is locked رو حل کنم؟
 
-عموما این مشکل از ضعیف بودن هارد سرور شماست. برای حل این مشکل [لاگ اکسس را غیر فعال](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#14---%D9%87%D8%A7%D8%B1%D8%AF-%D8%B3%D8%B1%D9%88%D8%B1%D9%85-%D9%BE%D8%B1-%D9%85%DB%8C%D8%B4%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D8%AC%D9%84%D9%88%DB%8C-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%D8%B4%D8%AF%D9%86-%D9%84%D8%A7%DA%AF-%D9%BE%D9%86%D9%84-%D8%B1%D9%88-%D8%A8%DA%AF%DB%8C%D8%B1%D9%85) کنید.
+عموما این خطا از ضعیف بودن هارد سرور شماست. برای حل آن [لاگ اکسس را غیر فعال](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#14---%D9%87%D8%A7%D8%B1%D8%AF-%D8%B3%D8%B1%D9%88%D8%B1%D9%85-%D9%BE%D8%B1-%D9%85%DB%8C%D8%B4%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D8%AC%D9%84%D9%88%DB%8C-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%D8%B4%D8%AF%D9%86-%D9%84%D8%A7%DA%AF-%D9%BE%D9%86%D9%84-%D8%B1%D9%88-%D8%A8%DA%AF%DB%8C%D8%B1%D9%85) کنید.
 
 </div>
