@@ -271,9 +271,13 @@ systemctl daemon-reload
 
 برای خالی کردن فایل این لاگ هم از دستور زیر استفاده کنید.
 
+<div dir="ltr">
+
 ```
 echo "" > /usr/local/x-ui/access.log
 ```
+
+</div>
 
 ## 15 - چی کار کنم که مصرف cpu به طور مداوم زیاد نشه؟
 
