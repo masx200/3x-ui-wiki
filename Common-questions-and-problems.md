@@ -161,6 +161,8 @@ sudo ufw allow from <ip-address> to any port <panel-port> proto tcp
 ```
 
 </div>
+
+فعال کردن https برای پنل نیز از نکات امنیتی [مهم](https://t.me/projectXtls/165) است.
  
 ## 8 - چجوری آیپی تیبل رو غیر فعال کنم؟
 
@@ -220,6 +222,8 @@ geosite های موجود را می‌توانید از [این لینک](https:
 </div>
 
 اگر میخواهید ترافیک udp هم از وارپ عبور کند می‌توانید از کلاینت وارپ یا وارپ را بصورت [وایرگارد](https://gozargah.github.io/marzban/examples/warp#%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84-%D8%A8%D8%A7-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%87%D8%B3%D8%AA%D9%87-xray) به outbound اضافه کنید و نتورک را ```"network": "tcp,udp"``` مشخص کنید.
+
+بعلاوه درصورتی که با ارور 403 در گوگل مواجه شدید، اجباری به نصب وارپ نیست و می‌توانید با فعال کردن تیک Use IPv4 for Google در تنظیمات xray پنل مشکل راه حل کنید.
 
 
 ## 12 - با ابیوز هتزنر چی کار کنم؟
@@ -308,5 +312,10 @@ echo "" > /usr/local/x-ui/access.log
 ## 17 - چجوری مشکل خطای database is locked رو حل کنم؟
 
 عموما این خطا از ضعیف بودن هارد سرور شماست. برای حل آن [لاگ اکسس را غیر فعال](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#14---%D9%87%D8%A7%D8%B1%D8%AF-%D8%B3%D8%B1%D9%88%D8%B1%D9%85-%D9%BE%D8%B1-%D9%85%DB%8C%D8%B4%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D8%AC%D9%84%D9%88%DB%8C-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%D8%B4%D8%AF%D9%86-%D9%84%D8%A7%DA%AF-%D9%BE%D9%86%D9%84-%D8%B1%D9%88-%D8%A8%DA%AF%DB%8C%D8%B1%D9%85) کنید.
+
+## 18 - تنظیمات Direct Country Configs چطور کار میکنه؟
+
+این تنظیم صرفا مناسب تانل پنل به پنل outbound می‌باشد و شما با فعال کردن آن در سرور ایران خود می‌توانید سایت های داخلی را با آیپی سرور ایران خود باز کنید.
+
 
 </div>
