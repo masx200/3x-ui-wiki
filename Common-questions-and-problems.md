@@ -266,7 +266,6 @@ systemctl daemon-reload
 
 ```
   "log": {
-    "access": "none",
     "error": "./error.log",
     "loglevel": "warning"
   },
