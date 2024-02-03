@@ -188,9 +188,10 @@ sysctl net.ipv4.ip_forward=0
 
 ```
   "log": {
-     "loglevel": "warning",
      "access": "./access.log",
-     "error": "./error.log"
+    "dnsLog": false,
+    "error": "./error.log",
+    "loglevel": "warning"
   },
 ```
 
