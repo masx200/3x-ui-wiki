@@ -1,5 +1,5 @@
 ## Hi team! <br />
-### From version 2.2 3X-UI make warning for me, that I am not use TLS when I communicate with WebPanel.<br />
+**From version 2.2 3X-UI make warning for me, that I am not use TLS when I communicate with WebPanel.**<br />
 I know, that it is security issue for me, but I can't use LetsEncrypt certificate, cause I am not use domains. <br />
 Solution - make self-signed certificate for my IP address.<br />
 ## Lets do this!<br />
