@@ -5,7 +5,7 @@ Solution - make self-signed certificate for my IP address.<br />
 ## Lets do this!<br />
 Go to server bash.<br />
 I create folder inside /usr/local/x-ui/ directory for cert's.<br />
-`cd /usr/local/x-ui`<br />
+`cd /root`<br />
 `mkdir ssl-srt`<br />
 `cd ssl-srt`<br />
 Next step - create certificates. I make it for 10 years, if you need more or less - just change -days option.<br />
@@ -22,7 +22,7 @@ Let's unlock it! <br />
 `openssl rsa -in key.pem -out key.un.pem -passin pass:YOUR PASS PHRASE` <br />
 ![image](https://github.com/MHSanaei/3x-ui/assets/83214353/bd8609f5-7ac1-4831-ac36-b32e46f8a282) <br />
 ## And the final round - install it into the WebPanel.<br />
-![image](https://github.com/MHSanaei/3x-ui/assets/83214353/5268e88a-d7fa-4429-93ba-f07ea3958ca4)
+![image](https://github.com/MHSanaei/3x-ui/assets/83214353/0430fd04-3722-4883-be35-b44cd5fdfc2b)
 
 ## Final
 After save and reboot Webpanel you will take an error about self-signed certificate, just ignore it. But, you will not see TLS error inside - your connection will be encrypted! <br /> 
