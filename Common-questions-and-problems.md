@@ -1,45 +1,33 @@
-<div dir="rtl">
+# Common Problems and Questions
 
-# مشکلات و سوالات رایج
+We aim to address common issues you may encounter while running the panel and using xray, providing brief and concise solutions.
 
-قصد داریم به مسائل رایجی که ممکن است در ران کردن پنل و استفاده از xray، با آنها مواجه شوید، پرداخته و راه‌حل‌های کوتاه و مختصری ارائه دهیم.
+## 1.  Server Update
 
+Usually, the first step on a Linux server is to update and upgrade the server.
 
-## 1- آپدیت سرور
-
-معمولا اولین اقدام در سرور لینوکس آپدیت و آپگرید سرور است.
-
- آپدیت سرور با دستور یک خطی:
-
-<div dir="ltr">
+One-line server update command:
 
 ```sh 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 ```
-</div>
 
-**حل خطاهای آپدیت سرور:**
+**Fixing Server Update Errors:**
 
-گاهی با تغییر لینک‌های sources می‌توانید مشکلات آپدیت را حل کنید.
+Sometimes you can solve update problems by changing the sources links.
 
-<div dir="ltr">
-
-```
+```sh
 nano /etc/apt/sources.list
 ```
 
-</div>
+Get the appropriate repository from the links below.
 
-مخزن‌ مناسب را از لینک‌های زیر دریافت کنید.
+[Ubuntu 20.04](https://gist.github.com/ishad0w/788555191c7037e249a439542c53e170) | [Ubuntu 22.04](https://gist.github.com/hakerdefo/9c99e140f543b5089e32176fe8721f5f)
 
-[ubuntu 20](https://gist.github.com/ishad0w/788555191c7037e249a439542c53e170) | [ubuntu 22](https://gist.github.com/hakerdefo/9c99e140f543b5089e32176fe8721f5f)
+If your connection is interrupted during the update, and you receive an error when updating again, the following commands will solve the problem:
 
-اگر در هنگام آپدیت دسترسی شما قطع شد، و هنگام آپدیت مجدد ارور دریافت کردید؛ دستورات زیر مشکل را حل می‌کند.
-
-<div dir="ltr">
-
-```
+```sh
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock*
@@ -48,346 +36,309 @@ dpkg --configure -a
 
 sudo dpkg --configure -a
 ```
-</div>
 
-بعد از اجرای دستورات مجدد آپدیت و آپگرید را انجام دهید.
+After executing these commands, perform the update and upgrade again.
 
+## 2. Changing Default SSH Port
 
+The default SSH port is 22. Changing it can enhance server security by reducing automated attacks and unauthorized access attempts. Here's how to change it:
 
-## 2 - تغییر پورت پیش‌فرض SSH
-
-پورت پیش فرض SSH ‮22 است. تغییر آن میتواند در امنیت سرور موثر باشد.
-
-
-[آموزش ویرایش تنظیمات SSH](https://github.com/rahgozar94725/freedom/tree/main/server-setup#%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D9%88%D8%B1%D8%AA-%D9%BE%DB%8C%D8%B4%D9%81%D8%B1%D8%B6-ssh)
-
-
-
-## 3 - دسترسی root به سرور
-
-برای برخی سرور ها لاگین با یوزر غیر روت انجام می‌شود.
-که با دستور `sudo -i` یا `sudo su` یوزر را به روت تغییر می‌کند.
-
-همچنین می‌توانید اجازه لاگین یوزر root را با دستور زیر بدهید و مستقیم با روت وارد سرور شوید.
-
-<div dir="ltr">
-
+1. Edit the SSH configuration file:
+```sh
+sudo nano /etc/ssh/sshd_config
 ```
+
+2. Find the line that says `#Port 22` and change it to your desired port number (e.g., `Port 2222`). Make sure to remove the # symbol.
+
+3. Save the file (Ctrl+X, then Y, then Enter)
+
+4. Restart the SSH service:
+```sh
+sudo systemctl restart sshd
+```
+
+5. Before closing your current SSH session, test the new port in a new terminal window to ensure it works:
+```sh
+ssh -p 2222 username@your_server_ip
+```
+
+6. If the new port works, update your firewall to allow the new port:
+```sh
+sudo ufw allow 2222/tcp
+```
+
+7. Optionally, you can remove the old port from the firewall:
+```sh
+sudo ufw deny 22/tcp
+```
+
+Important notes:
+- Choose a port number between 1024 and 65535
+- Remember to update your SSH client configurations to use the new port
+- Keep the new port number secure and don't share it publicly
+- Make sure to test the new connection before closing your current session
+
+## 3. Root Access to Server
+
+For some servers, login is done with a non-root user.
+You can change the user to root with the command `sudo -i` or `sudo su`.
+
+You can also allow root user login with the following command and log in directly as root:
+
+```sh
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo passwd
 ```
-</div>
 
-## 4 - تغییر DNS سرور
+## 4. Changing DNS Server
 
-عوض کردن DNS سرور میتواند باعث بهبود عملکرد سرور و گذر از برخی محدودها باشد. 
-[آموزش تغییر DNS سرور](https://github.com/hiddify/hiddify-config/wiki/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D8%AA%D9%86%D8%B8%DB%8C%D9%85-DNS-%D8%B3%D8%B1%D9%88%D8%B1#%D8%AA%D9%86%D8%B8%DB%8C%D9%85-dns-%D8%A7%D8%B2-%D8%B7%D8%B1%DB%8C%D9%82-ssh)
+Changing the DNS server can improve server performance and bypass some restrictions.
+[DNS Server Configuration Tutorial](https://github.com/hiddify/hiddify-config/wiki/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D8%AA%D9%86%D8%B8%DB%8C%D9%85-DNS-%D8%B3%D8%B1%D9%88%D8%B1#%D8%AA%D9%86%D8%B8%DB%8C%D9%85-dns-%D8%A7%D8%B2-%D8%B7%D8%B1%DB%8C%D9%82-ssh)
 
-الف) **DNS های پیشنهادی**
-
-<div dir="ltr">
+a) **Recommended DNS**
 
 ```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 1.1.1.1
+nameserver 1.0.0.1
 ```
 
-</div>
-
-در سرور ایران برای نصب ابزارهای تحر‌یم شده نیاز به تغییر DNS به شکن دارید.
-
-<div dir="ltr">
+For Iranian servers, you need to change DNS to Shecan to install sanctioned tools.
 
 ```
 nameserver 178.22.122.100
 nameserver 185.51.200.2
 ```
-</div>
 
-## 5 - فعال کردن فایروال سرور
+## 5. Enabling Server Firewall
 
-فعال کردن فایروال برای امنیت سرور و مسدود نشدن آن مفید و موثر است. همچنین در برخی سرور ها فایروال بطور پیشفرض باز است و شما باید پورت‌های مورد نیاز خود را فعال کنید.
+Enabling the firewall is useful and effective for server security and preventing blocking. Also, in some servers, the firewall is open by default, and you need to enable the ports you need.
 
-ابتدا پورت هایی که نیاز دارید را در فایروال با دستور زیر فعال کنید، این پورت ها می تواند شامل پورت SSH، پورت پنل، پورت کانفیگ ها و ... باشد.
+First, enable the ports you need in the firewall with the following command. These ports can include SSH port, panel port, config ports, etc.
 
-<div dir="ltr">
-
-```
+```sh
 sudo ufw allow <port>/tcp
 ```
 
-</div>
+Then turn on the firewall with the following command:
 
-سپس با دستور زیر فایروال را روشن کنید.
-
-<div dir="ltr">
-
-```
+```sh
 sudo ufw enable
 ```
 
-</div>
-
-با دستور `sudo ufw status` وضعیت فایروال خود را ببینید.
-
-همچنین به کمک Firewall Management در منوی x-ui می‌توانید، فایروال سرور را به راحتی فعال کنید.
-
-## 6 - چه تنظیماتی برای ریالیتی پیشنهاد میدید؟
-
-
-با توجه به پیشنهادات [سازنده](https://github.com/XTLS/Xray-core/issues/1769#issuecomment-1464821647) xray و صاحب نظران ترکیب TCP REALITY VISION بهترین انتخاب است. البته میتوان از GRPC و H2 نیز که پینگ پایین تری دارند استفاده کرد، اما معمولا TCP در تست های سرعت موفق تر بوده است. بعلاوه در [این آموزش](https://telegra.ph/RealityTCPHeaderVless-05-29) ترکیب REALITY و HTTP Camouflage و تعدادی SNI معرفی شده است. پیشنهاد میشود با استفاده از ابزار SNI [RealiTLScanner](https://github.com/XTLS/RealiTLScanner) با مشخصه TLS 1.3 H2 پیدا کرده و از آن استفاده کنید.
-
-قویاً توصیه می‌شود تمامی کانفیگ ها را روی یک اینباند یا پورت بزنید.
-
-
-## 7 - یکی می‌خواد به پنلم لاگین کنه چی کار کنم؟
-
-اگر شما از طریق ربات یا لاگ‌های سرور متوجه شدید که پنلتون بروت فورس می‌شود چند راهکار دارید.
-
- 1- تغییر port و path پنل.
-
- 2- بلاک کردن آیپی اتکر. اگر فقط یک آیپی سعی دارد به پنل شما ورود کند در صورت فعال بودن فایروال با دستور زیر می‌توانید آیپی او را مسدود کنید.
-
-<div dir="ltr">
- 
+Check your firewall status with the command:
+```sh
+sudo ufw status`
 ```
+
+You can also easily enable the server firewall using Firewall Management in the x-ui menu.
+
+## 6. What settings do you recommend for Reality?
+
+According to [xray developer](https://github.com/XTLS/Xray-core/issues/1769#issuecomment-1464821647) and experts, TCP REALITY VISION combination is the best choice. Of course, you can use GRPC and H2 which have lower ping, but usually TCP has been more successful in speed tests. Additionally, in [this tutorial](https://telegra.ph/RealityTCPHeaderVless-05-29), REALITY with HTTP Camouflage and several SNIs are introduced. It is recommended to use [RealiTLScanner](https://github.com/XTLS/RealiTLScanner) to find SNIs with TLS 1.3 H2 characteristics.
+
+It is strongly recommended to put all configs on one inbound or port.
+
+## 7. What should I do if someone wants to log into my panel?
+
+If you notice through the bot or server logs that your panel is being brute-forced, you have several solutions.
+
+1. Change panel port and path.
+2. Block the attacker's IP. If only one IP is trying to access your panel, you can block their IP with the following command if the firewall is active:
+
+```sh
 sudo ufw deny from <ip-address> to any
 ```
 
-</div>
+3. Limit panel access to your IP. By not leaving the panel port open in the firewall, you can only log in with the config and IP of the same server. Or if you have another IP, you can allow it with the following command if the firewall is active:
 
-3- محدود کردن ورود به پنل با آیپی خودتان. با باز نگذاشتن پورت پنل در فایروال میتوانید تنها با کانفیگ و آیپی همان سرور لاگین کنید. یا اگر آیپی دیگری دارید در صورت فعال بودن فایروال با دستور زیر می‌توانید آن را مجاز کنید.
-
-<div dir="ltr">
-
-```
+```sh
 sudo ufw allow from <ip-address> to any port <panel-port> proto tcp
 ```
 
-</div>
+Enabling HTTPS for the panel is also an [important](https://t.me/projectXtls/165) security point.
 
-فعال کردن https برای پنل نیز از نکات امنیتی [مهم](https://t.me/projectXtls/165) است.
- 
-## 8 - چجوری تانل با آیپی تیبل رو غیر فعال کنم؟
+## 8. How do I disable IP table tunneling?
 
-<div dir="ltr">
-
-```
+```sh
 sysctl net.ipv4.ip_forward=0
 ```
 
-</div>
+First, execute the above command, then replace A- with D- in all commands you used to enable IP table tunneling and execute the commands.
 
-ابتدا دستور بالا را اجرا کنید و سپس تمام دستوراتی که برای فعال کردن تانل آیپی تیبل استفاده کردید بجای فلگ A- از D- استفاده کنید و دستور ها را اجرا کنید.
+## 9. How do I specify that the bot should send backups at a certain time?
 
-## 9 - چجوری مشخص کنم ربات، بکاپ ها رو فلان ساعتی یک بار ارسال کنه؟
+It's explained [here](https://github.com/MHSanaei/3x-ui#telegram-bot), and to specify precisely, you can use [this](https://crontab.guru/examples.html) website.
 
-[اینجا](https://github.com/MHSanaei/3x-ui#telegram-bot) توضیح داده شده و برای مشخص کردن بطور دقیق می‌توانید از [این](https://crontab.guru/examples.html) سایت استفاده کنید.
+## 10. Does IP limit work? How do I use it in tunneling?
 
-## 10 - آیپی لیمیت کار میکنه؟ توی تونل چجوری ازش استفاده کنم؟
+Yes; from version 1.7.0+, you can use it by installing fail2ban in the x-ui menu and specifying the limit for each client. If a user connects with an unauthorized number of IPs, they will be blocked for the time you specified. From version 1.7.9+, you need to enable access log in xray settings as follows:
 
-بله؛ از ورژن 1.7.0+ با نصب کردن fail2ban در منوی x-ui و مشخص کردن لیمیت برای هر کلاینت میتوان از آن استفاده کرد. در صورت وصل شدن تعداد غیرمجاز کاربر آیپی به مدت زمانی که خودتان مشخص کردید مسدود می‌شود. از ورژن 1.7.9+ باید اکسس لاگ را در تنظیمات xray به شکل زیر فعال کنید.
-
-<div dir="ltr">
-
-```
-  "log": {
+```json
+"log": {
     "access": "./access.log",
     "dnsLog": false,
     "error": "./error.log",
     "loglevel": "warning"
-  },
+},
 ```
 
-</div>
+Or in version 2.1.3+, set Xray Configs -> Basics -> General -> Access Log to access.log/.
 
-یا در نسخه 2.1.3+ گزینه Xray Configs -> Basics -> General -> Access Log را روی access.log/. قرار دهید.
+You cannot use IP limit for direct tunneling because only your Iranian server's IP reaches the foreign server. A simple solution is [panel-to-panel](https://github.com/rahgozar94725/freedom/blob/main/domestic-server/p-to-p.md) [outbound](https://t.me/panel3xui/65) tunneling and using IP limit on the Iranian server.
 
-برای تانل مستقیم نمی‌توانید از آیپی لیمیت استفاده کنید، زیرا فقط آیپی سرور ایران شما به سرور خارج میرسد. راهکار ساده آن تانل [پنل به پنل](https://github.com/rahgozar94725/freedom/blob/main/domestic-server/p-to-p.md) [outbound](https://t.me/panel3xui/65) و استفاده از آیپی لیمیت در سرور ایران است.
+IP limit doesn't work by default for CDN configs because the IPs of CDN edge servers reach our server. To send the user's IP to xray, you can create a reverse proxy using nginx by setting the X-Forwarded-For header for WS and X-Real-IP for GRPC, and enable acceptProxyProtocol in your inbound settings.
 
-آیپی لیمیت بصورت پیش‌فرض برای کانفیگ‌های CDN کار نمی‌کند، زیرا آیپی سرورهای لبه CDN به سرور ما می‌رسد. برای ارسال آیپی کاربر به xray می‌توانید به کمک nginx با تنظیم هدر X-Forwarded-For برای WS و X-Real-IP برای GRPC ریورس پروکسی ایجاد کنید و در تنظیمات inbound خود acceptProxyProtocol را فعال کنید.
+## 11. Some sites don't open for me. What is WARP? How do I enable it? How do I route all traffic through WARP?
 
+WARP routes your server's traffic through Cloudflare's network using WireGuard, changing your server's IP to a Cloudflare IP. Since WARP IPs are whitelisted in most services, you can access sites that give forbidden or 403 errors. However, your server's IP may not be fixed.
 
-## 11 - بعضی سایتا برام باز نمیشه. وارپ چیه؟ چجوری فعالش کنم؟ چجوری کل ترافیک رو از وارپ رد کنم؟
-وارپ ترافیک سرور شما را با استفاده از وایرگارد از شبکه کلودفلر رد می‌کند، از این طریق آیپی سرور شما به آیپی کلودفلر تغییر می‌کند. به دلیل اینکه آیپی های وارپ در بیشتر سرویس‌ها وایت لیست هستند، می‌توانید به سایت‌هایی که ارور forbidden یا 403 می‌دهند دسترسی داشته باشید. البته آیپی سرور شما ممکن است ثابت نباشد.
-
-به این ترتیب می‌توانید وارپ را فعال کنید:
+You can enable WARP this way:
+```
 Xray Configs -> Outbounds -> Create -> Add Outbound
+```
 
- در ستون Basics تیک پلتفورم هایی مثل گوگل و اسپاتیفای را بزنید
+In the Basics column, check platforms like Google and Spotify
 
-و یا سایت دلخواه خود را به این ترتیب اضافه کنید:
+Or add your desired site this way:
+```
 Xray Configs -> Routing Rules -> Add Rule
+```
 
-Outbound Tag را warp انتخاب کرده و دامنه های خود را به شکل زیر Domain اضافه کنید:
-
-<div dir="ltr">
+Select warp as Outbound Tag and add your domains to Domain as follows:
 
 ```
 bing.com,yahoo.com,geosite:instagram,geosite:meta
 ```
 
-</div>
+You can view existing geosites from [this link](https://github.com/v2fly/domain-list-community/tree/master/data).
 
-geosite های موجود را می‌توانید از [این لینک](https://github.com/v2fly/domain-list-community/tree/master/data) مشاهده کنید.
+**To route all traffic through WARP**, you can modify the WARP route code in the Advanced column as follows:
 
-**برای رد کردن کل ترافیک از وارپ** میتوانید کد route وارپ را در ستون Advanced به شکل زیر تغییر دهید.
-
-<div dir="ltr">
-
-```
-      {
-        "type": "field",
-        "outboundTag": "warp",
-        "network": "tcp,udp"
-      },
+```json
+{
+    "type": "field",
+    "outboundTag": "warp",
+    "network": "tcp,udp"
+},
 ```
 
-</div>
+Additionally, if you encounter a 403 error in Google, installing WARP is not mandatory, and you can solve the problem by enabling the Use IPv4 for Google option in xray panel settings.
 
-بعلاوه درصورتی که با ارور 403 در گوگل مواجه شدید، اجباری به نصب وارپ نیست و می‌توانید با فعال کردن تیک Use IPv4 for Google در تنظیمات xray پنل مشکل راه حل کنید.
+For Spotify, sometimes besides WARP, you also need to enable Fake DNS on the client side.
 
-برای اسپاتیفای گاهی به غیر از وارپ نیاز به فعال کردن Fake Dns در سمت کلاینت نیز هست.
+## 12. What should I do with Hetzner abuse?
 
+Receiving abuse from datacenters is not related to the panel.
 
-## 12 - با ابیوز هتزنر چی کار کنم؟
+Routing all traffic through [WARP](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#11---%D8%A8%D8%B9%D8%B6%DB%8C-%D8%B3%D8%A7%DB%8C%D8%AA%D8%A7-%D8%A8%D8%B1%D8%A7%D9%85-%D8%A8%D8%A7%D8%B2-%D9%86%D9%85%DB%8C%D8%B4%D9%87-%D9%88%D8%A7%D8%B1%D9%BE-%DA%86%DB%8C%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D9%81%D8%B9%D8%A7%D9%84%D8%B4-%DA%A9%D9%86%D9%85-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%DA%A9%D9%84-%D8%AA%D8%B1%D8%A7%D9%81%DB%8C%DA%A9-%D8%B1%D9%88-%D8%A7%D8%B2-%D9%88%D8%A7%D8%B1%D9%BE-%D8%B1%D8%AF-%DA%A9%D9%86%D9%85) can prevent some abuses. Not running and installing unknown scripts is also an effective security measure. Also, make sure BitTorrent and Private IPs are blocked in Xray settings.
 
-دریافت abuse از سمت دیتاسنتر ها مربوط به پنل نمی‌باشد.
+Some warnings don't cause your account to be blocked and are just security warnings and recommendations from BSI. To prevent these warnings, enable the Security Shield option in Xray settings. This setting prevents users from accessing malware links.
 
-رد کردن کل ترافیک از [وارپ](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#11---%D8%A8%D8%B9%D8%B6%DB%8C-%D8%B3%D8%A7%DB%8C%D8%AA%D8%A7-%D8%A8%D8%B1%D8%A7%D9%85-%D8%A8%D8%A7%D8%B2-%D9%86%D9%85%DB%8C%D8%B4%D9%87-%D9%88%D8%A7%D8%B1%D9%BE-%DA%86%DB%8C%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D9%81%D8%B9%D8%A7%D9%84%D8%B4-%DA%A9%D9%86%D9%85-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%DA%A9%D9%84-%D8%AA%D8%B1%D8%A7%D9%81%DB%8C%DA%A9-%D8%B1%D9%88-%D8%A7%D8%B2-%D9%88%D8%A7%D8%B1%D9%BE-%D8%B1%D8%AF-%DA%A9%D9%86%D9%85) می‌تواند از برخی ابیوزها جلوگیری کند. اجرا و نصب نکردن اسکریپت‌های ناشناس هم از نکات امنیتی موثر است. همچنین از مسدود بودن BitTorrent و Private IPs در تنظیمات Xray مطمئن شوید.
+Finally, if this problem persists, monitor your users.
 
-برخی اخطارها باعث مسدود شدن حساب کاربری شما نمی‌شود و فقط از سمت BSI برای شما هشدار و توصیه امنیتی ارسال می‌شود. برای جلوگیری از این اخطارها تیک Security Shield را در تنظیمات Xray فعال کنید. این تنظیم از دسترسی کاربران به لینک‌های بدافزار جلوگیری می‌کند.
+## 13. How does the panel subscription link work?
 
-در نهایت اگر این مشکل تکرار شد کاربران خود را مانیتور کنید.
+The advantage of the subscription link is that if there are changes in inbound settings, you don't need to send a new link to the user, and the user receives the new config by updating from the client side.
 
-## 13 - لینک سابسکریپشن پنل چطور کار می‌کنه؟
-مزیت لینک سابسکریپشن این است که در صورت تغییر در تنظیمات اینباند نیازی به ارسال لینک جدید به کاربر ندارید و کاربر با update از سمت کلاینت کانفیگ جدید را دریافت می‌کند.
+To use this section, first enable the Enable Subscription Service option in Subscription settings.
+Then you can specify a link for each client.
+You can select one link for multiple clients.
 
-برای استفاده از این بخش ابتدا باید تیک Enable Subscription Service را در تنظیمات Subscription فعال کنید.
-سپس می‌توانید برای هر client لینک مشخص کنید.
-این امکان وجود دارید که برای چند کلاینت یک لینک انتخاب کنید.
+In version 1.7.1+, traffic amount and remaining time are added to the config name.
 
-در نسخه 1.7.1+ میزان ترافیک و زمان باقی مانده به اسم کانفیگ اضافه می‌شود.
+Also, it's recommended to enable HTTPS by selecting your domain's certificate files.
 
-همچنین پیشنهاد می‌شود با انتخاب فایل‌های سرتیفیکت دامین خودتان https را فعال کنید.
+## 14. My server's hard drive is filling up. How do I prevent panel logs from being saved?
 
-## 14 - هارد سرورم پر می‌شه. چجوری جلوی ذخیره شدن لاگ پنل رو بگیرم؟
+If you're not using IPlimit, you can disable access log by modifying the log section in Xray config's Advanced part as follows:
 
-در صورتی که از IPlimit استفاده نمی‌کنید، با تغییر بخش log در قسمت Advanced کانفیگ Xray می‌توانید به شکل زیر اکسس لاگ را غیر فعال کنید.
-
-<div dir="ltr">
-
-```
-  "log": {
+```json
+"log": {
     "error": "./error.log",
     "loglevel": "warning"
-  },
+},
 ```
-</div>
 
-یا در نسخه 2.1.3+ گزینه Xray Configs -> Basics -> General -> Access Log را روی none قرار دهید.
+Or in version 2.1.3+, set Xray Configs -> Basics -> General -> Access Log to none.
 
-برای خالی کردن فایل این لاگ هم از دستور زیر استفاده کنید.
+To clear this log file, use the following command:
 
-<div dir="ltr">
-
-```
+```sh
 echo "" > /usr/local/x-ui/access.log
 ```
 
-</div>
+## 15. What should I do to prevent continuous high CPU usage?
 
-## 15 - چی کار کنم که مصرف cpu به طور مداوم زیاد نشه؟
+First, check which process is causing the CPU increase with the `top` and `htop` commands.
 
-ابتدا با دستورات `top` و `htop` بررسی کنید که افزایش cpu مربوط به کدام پروسس است.
+If this problem is from the panel or xray, perform these actions:
 
-در صورتی که این مشکل از پنل یا xray بود، چند اقدام را انجام دهید.
+- Update the panel.
+- Install fail2ban from the x-ui menu.
+- Get server resources appropriate for your bandwidth consumption.
 
-1 - آپدیت کردن پنل.
+## 16. Why is all users' consumption zero and the panel not calculating traffic usage?
 
-2 - نصب fail2ban از منوی x-ui.
+This problem usually has three main reasons:
 
-3 - منابع سرور را متناسب با پهنای باند مصرفی تهیه کنید.
+- Error in xray config where you should press the Reset to Default Configuration button in the panel once and save.
+- You or the bot you're using may not have entered complete user information like email.
+- If you've moved the database and have this problem, update the panel once.
+- The api rule must be the first rule in the Routing Rules section.
 
-## 16 - چرا مصرف همه یوزر ها صفره و پنل حجم مصرفی رو حساب نمی‌کنه؟
+## 17. How do I solve the "database is locked" error?
 
-معمولا این مشکل سه دلیل اصلی دارد.
+Usually, this error is due to your server's weak hard drive. To solve it, [disable access log](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#14---%D9%87%D8%A7%D8%B1%D8%AF-%D8%B3%D8%B1%D9%88%D8%B1%D9%85-%D9%BE%D8%B1-%D9%85%DB%8C%D8%B4%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D8%AC%D9%84%D9%88%DB%8C-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%D8%B4%D8%AF%D9%86-%D9%84%D8%A7%DA%AF-%D9%BE%D9%86%D9%84-%D8%B1%D9%88-%D8%A8%DA%AF%DB%8C%D8%B1%D9%85).
 
-1 - اشکال در کانفیگ xray که شما می‌بایست یک بار دکمه Reset to Default Configuration را در پنل بزنید و save کنید.
+## 18. How do Direct Country Configs settings work?
 
-2 - ممکن است شما یا رباتی که از استفاده می‌کنید، اطلاعات یوزر مانند ایمیل را کامل وارد نکرده باشد.
+This setting is only suitable for panel-to-panel outbound tunneling, and by enabling it on your Iranian server, you can open internal sites with your Iranian server's IP.
 
-3 - اگر دیتابیس را جابه‌جا کرده اید و این مشکل را دارید، یک بار پنل را آپدیت کنید.
+## 19. How do I solve the problem of not downloading from GitHub when installing or updating the panel?
 
-4 - در بخش Routing Rules قانون api باید اولین rule باشد.
+If it stops at `Resolving raw.githubusercontent.com` during GitHub download or you receive the `Connection timed out` error, and this problem only exists for GitHub, it can be solved in two ways.
 
-## 17 - چجوری مشکل خطای database is locked رو حل کنم؟
+**First method**: Download the script with IPv4:
 
-عموما این خطا از ضعیف بودن هارد سرور شماست. برای حل آن [لاگ اکسس را غیر فعال](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems#14---%D9%87%D8%A7%D8%B1%D8%AF-%D8%B3%D8%B1%D9%88%D8%B1%D9%85-%D9%BE%D8%B1-%D9%85%DB%8C%D8%B4%D9%87-%DA%86%D8%AC%D9%88%D8%B1%DB%8C-%D8%AC%D9%84%D9%88%DB%8C-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%D8%B4%D8%AF%D9%86-%D9%84%D8%A7%DA%AF-%D9%BE%D9%86%D9%84-%D8%B1%D9%88-%D8%A8%DA%AF%DB%8C%D8%B1%D9%85) کنید.
-
-## 18 - تنظیمات Direct Country Configs چطور کار میکنه؟
-
-این تنظیم صرفا مناسب تانل پنل به پنل outbound می‌باشد و شما با فعال کردن آن در سرور ایران می‌توانید سایت های داخلی را با آیپی سرور ایران خود باز کنید.
-
-## 19 - مشکل دانلود نشدن از گیت هاب موقع نصب پنل یا آپدیت رو چجوری حل کنم؟
-
-اگر در هنگام دانلود از گیت هاب در `Resolving raw.githubusercontent.com` متوقف می شود یا ارور `Connection timed out` را دریافت کردید و این مشکل فقط برای سایت گیت هاب وجود داشت، با دو روش قابل حل است.
-
-**روش اول**: با آیپی 4 سرور اسکریپت را دانلود کنید.
-
-<div dir="ltr">
-
-```
+```sh
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh --ipv4)
 ```
 
-</div>
+**Second method**: You can change GitHub's domain IP as follows:
 
-**روش دوم**: توانید آیپی دامنه گیت هاب را به روش زیر تغییر دهید.
-
-<div dir="ltr">
-
-```
+```sh
 sudo nano /etc/hosts
 ```
 
-</div>
-
-این خط را به آخر فایل اضافه و ذخیره کنید.
-
-<div dir="ltr">
+Add this line to the end of the file and save:
 
 ```
- 185.199.110.133 raw.githubusercontent.com
+185.199.110.133 raw.githubusercontent.com
 ```
 
-</div>
+## 20. Why doesn't the panel search show any results?
 
-## 20 - چرا سرچ پنل هیچ نتیجه‌ای رو نشون نمی‌ده؟
+Search works fine in the latest updates, but note that no client's email should contain spaces.
 
-سرچ در آپدیت های آخر مشکلی ندارد اما توجه داشته باشید، در ایمیلِ هیچ کلاینتی نباید از space یا فاصله استفاده شود.
+## 21. What kind of panel did you make! It keeps giving 400 errors!
 
-## 21 - این چه پنلیه ساختین! همش ارور 400 میده!
+If you encounter the `Error: Request failed with status code 400` error, enable SSL for your panel.
 
-در صورتی که با خطای `Error: Request failed with status code 400` مواجه می‌شوید، ssl را برای پنل خود فعال کنید.
+If SSL is enabled, perform the actions in [this link](https://www.hostinger.com/tutorials/how-to-fix-400-bad-request-error).
 
-در صورت فعال بودن ssl اقدامات [این لینک](https://www.hostinger.com/tutorials/how-to-fix-400-bad-request-error) را انجام دهید.
+## 22. Why does a user remain online and consume more than specified even after their traffic is used up?
 
-## 22 - چرا کاربری با وجود تمام شدن ترافیکش همچنان آنلاین می‌مونه و بیش از حد مشخص مصرف میکنه؟
+In this panel, traffic is checked every 10 seconds, and if the volume is used up, it gives xray the command to disconnect. If the user is still shown as online, it might be due to the server's hard drive and changes not being saved or being saved late. More importantly, if xray doesn't disconnect the user, it's not an x-ui panel bug because according to [our evaluations](https://github.com/alireza0/x-ui/issues/771#issuecomment-1861822323), when a user is downloading with high bandwidth, it takes about two minutes (this time is not exact) for all user sessions in xray to end. During this time, user consumption is recorded in the panel.
 
-در این پنل هر 10 ثانیه ترافیک چک می‌شود و در صورتی که حجم تمام شده باشد، به xray دستور قطع شدن می‌دهد. اگر کاربر همچنان آنلاین نمایش داده شود ممکن است، مشکل از هارد سرور و ذخیره نشدن یا دیر ذخیره شدن تغییرات باشد. نکته مهم تر این است اگر xray کاربر را قطع نکند، باگ پنل x-ui نیست زیرا طبق [ارزیابی های ما](https://github.com/alireza0/x-ui/issues/771#issuecomment-1861822323)، وقتی کاربر در حال دانلود با پهنای باند بالا باشد، نزدیک به دو دقیقه (این زمان قطعی نیست) طول می‌کشد که همه session های کاربر در xray به اتمام برسد. در این مدت، مصرف کاربر در پنل ثبت می‌شود.
+## 23. Why doesn't my panel open after updating or transferring?
 
-## 23 - چرا بعد از آپدیت یا انتقال پنلم دیگه باز نمی‌شه؟
+This problem might be due to an error in xray or panel SSL issue.
 
-این مشکل ممکن است از اروری در xray یا ایراد ssl پنل باشد.
+It's usually solved by Reset Settings in the x-ui menu.
 
-که معمولا با Reset Settings در منوی x-ui حل می‌شود.
+## 24. How do I use fragment for my config?
 
-## 24 - چجوری از فرگمنت برای کانفیگم استفاده کنم؟
+Fragment is easily configurable in the Freedom column of Outbounds for panel-to-panel tunneling.
 
-فرگمنت برای تانل پنل به پنل در بخش Freedom ستون Outbounds به راحتی قابل تنظیم است.
+But for direct config, fragment [cannot be received as a link](https://github.com/XTLS/Xray-core/discussions/716#discussioncomment-6273317); and must be used as json.
 
-اما برای کانفیگ مستقیم فرگمنت را [نمی‌توان بصورت لینک](https://github.com/XTLS/Xray-core/discussions/716#discussioncomment-6273317) دریافت کرد؛ و می‌بایست بصورت json استفاده کرد.
-
-برای ساخت راحت‌تر json فرگمنت می‌توانید از [این ابزار](https://ircfspace.github.io/fragment/) استفاده کنید.
-
-</div>
+You can use [this tool](https://ircfspace.github.io/fragment/) to easily create fragment json. 
