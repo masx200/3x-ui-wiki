@@ -1,7 +1,3 @@
-# Common Problems and Questions
-
-We aim to address common issues you may encounter while running the panel and using xray, providing brief and concise solutions.
-
 ## 1.  Server Update
 
 Usually, the first step on a Linux server is to update and upgrade the server.
