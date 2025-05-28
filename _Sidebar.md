@@ -17,6 +17,6 @@
 ##### Advanced
 * [💭 Setting Telegram bot](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-telegram-bot)
 * [➡️ Setting Cloudflare WARP](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-cloudflare-warp)
-* ➡️ Setting TOR proxy
+* [➡️ Setting TOR proxy](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-tor-proxy)
 ##### Deprecated
 * [❓ Common Questions & Problems](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems)
