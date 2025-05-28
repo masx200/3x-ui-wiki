@@ -24,6 +24,24 @@ At the moment we support major operating systems, here is the list of OS on whic
 | Armbian | — |
 | OpenSUSE | — |
 
+## Supported architectures
+
+Our platform offers compatibility with a diverse range of architectures and devices, ensuring flexibility across various computing environments. The following are key architectures that we support:
+
+* `amd64` (recommended): This prevalent architecture is the standard for personal computers and servers, accommodating most modern operating systems seamlessly.
+
+* `x86` / `i386`: Widely adopted in desktop and laptop computers, this architecture enjoys broad support from numerous operating systems and applications, including but not limited to Windows, macOS, and Linux systems.
+
+* `armv8` / `arm64` / `aarch64`: Tailored for contemporary mobile and embedded devices, such as smartphones and tablets, this architecture is exemplified by devices like Raspberry Pi 4, Raspberry Pi 3, Raspberry Pi Zero 2/Zero 2 W, Orange Pi 3 LTS, and more.
+
+* `armv7` / `arm` / `arm32`: Serving as the architecture for older mobile and embedded devices, it remains widely utilized in devices like Orange Pi Zero LTS, Orange Pi PC Plus, Raspberry Pi 2, among others.
+
+* `armv6` / `arm` / `arm32`: Geared towards very old embedded devices, this architecture, while less prevalent, is still in use. Devices such as Raspberry Pi 1, Raspberry Pi Zero/Zero W, rely on this architecture.
+
+* `armv5` / `arm` / `arm32`: An older architecture primarily associated with early embedded systems, it is less common today but may still be found in legacy devices like early Raspberry Pi versions and some older smartphones.
+
+* `s390x`: This architecture is commonly used in IBM mainframe computers and offers high performance and reliability for enterprise workloads.
+
 ## Docker (recommended)
 
 1. Before installing Docker, install the following tools using your package manager: `curl`, `nano` (if necessary)
