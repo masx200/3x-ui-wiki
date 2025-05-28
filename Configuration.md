@@ -234,3 +234,38 @@ To enable the IP Limit functionality, you need to install `fail2ban` and its req
 
 - **For versions `v2.1.3` and newer:**
   - There is an option for configuring `access.log` directly from the panel.
+
+## API
+
+- [API Documentation](https://www.postman.com/hsanaei/3x-ui/collection/q1l5l0u/3x-ui)
+- `/login` with `POST` user data: `{username: '', password: ''}` for login
+- `/panel/api/inbounds` base for following actions:
+
+| Method | Path                               | Action                                      |
+| :----: | ---------------------------------- | ------------------------------------------- |
+| `GET`  | `"/list"`                          | Get all inbounds                            |
+| `GET`  | `"/get/:id"`                       | Get inbound with inbound.id                 |
+| `GET`  | `"/getClientTraffics/:email"`      | Get Client Traffics with email              |
+| `GET`  | `"/getClientTrafficsById/:id"`     | Get client's traffic By ID |
+| `GET`  | `"/createbackup"`                  | Telegram bot sends backup to admins         |
+| `POST` | `"/add"`                           | Add inbound                                 |
+| `POST` | `"/del/:id"`                       | Delete Inbound                              |
+| `POST` | `"/update/:id"`                    | Update Inbound                              |
+| `POST` | `"/clientIps/:email"`              | Client Ip address                           |
+| `POST` | `"/clearClientIps/:email"`         | Clear Client Ip address                     |
+| `POST` | `"/addClient"`                     | Add Client to inbound                       |
+| `POST` | `"/:id/delClient/:clientId"`       | Delete Client by clientId\*                 |
+| `POST` | `"/updateClient/:clientId"`        | Update Client by clientId\*                 |
+| `POST` | `"/:id/resetClientTraffic/:email"` | Reset Client's Traffic                      |
+| `POST` | `"/resetAllTraffics"`              | Reset traffics of all inbounds              |
+| `POST` | `"/resetAllClientTraffics/:id"`    | Reset traffics of all clients in an inbound |
+| `POST` | `"/delDepletedClients/:id"`        | Delete inbound depleted clients (-1: all)   |
+| `POST` | `"/onlines"`                       | Get Online users ( list of emails )         |
+
+\*- The field `clientId` should be filled by:
+
+- `client.id` for VMESS and VLESS
+- `client.password` for TROJAN
+- `client.email` for Shadowsocks
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5%26entityType%3Dcollection%26workspaceId%3Dd64f609f-485a-4951-9b8f-876b3f917124)
