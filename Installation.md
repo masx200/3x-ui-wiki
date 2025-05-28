@@ -123,7 +123,7 @@ $ rm 3x-ui -rf
 1. Install the necessary tools to run the script: `curl` (if needed)
 2. Open shell and enter this command
 ```bash
-$ bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/refs/tags/latest/install.sh)
+$ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 3. Go through the panel setup
 4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
