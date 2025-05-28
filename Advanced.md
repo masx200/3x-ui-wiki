@@ -2,7 +2,14 @@
 
 #### Usage
 
-The web panel supports daily traffic, panel login, database backup, system status, client info, and other notification and functions through the Telegram Bot. To use the bot, you need to set the bot-related parameters in the panel, including:
+The web panel supports daily traffic, panel login, database backup, system status, client info, and other notification and functions through the Telegram Bot. 
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/07-bot-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/07-bot-light.png">
+</picture>
+
+To use the bot, you need to set the bot-related parameters in the panel, including:
 
 - Telegram Token
 - Admin Chat ID(s)
