@@ -91,3 +91,32 @@ We have created a WARP profile, but not set `WARP` outbound. To create an outbou
 ![image](https://github.com/user-attachments/assets/3570af28-d958-449d-bf0b-0122ece82851)
 
 In this rule, we redirect all traffic from Reddit and Google (and all its services) to WARP outbound
+
+## Setting TOR proxy
+
+### What is it?
+
+Tor, short for The Onion Router, is a free and open-source software designed to enable anonymous communication over the internet. It achieves this by routing your internet traffic through a global network of volunteer-operated servers, known as relays or nodes, thereby concealing your location and usage from surveillance and traffic analysis.
+
+### Setup
+
+> [!TIP]
+> Before you start, make sure you have Docker installed. If it is not installed, see [here](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended) for the installation script
+
+1. Open terminal and run this command
+
+```bash
+$ docker run --restart unless-stopped -i -t -p 9050:9050 dperson/torproxy
+```
+
+This will start a SOCKS5 proxy with TOR, now it needs to be configured in the panel
+
+2. Go to panel and open `Xray Settings`
+3. Go to `Outbound` tab and click `Add Outbound`
+4. Fill out the form as follows and click `Add Outbound`
+
+![Outbound Modal](https://github.com/user-attachments/assets/ef36ec1c-ee6c-4661-85a4-a66835ccc4a7)
+
+### Redirect traffic
+
+Same [thing](https://github.com/MHSanaei/3x-ui/wiki/Advanced#redirect-trafic-to-warp) as with WARP, but instead of `warp` outbound, we use `tor`. 
