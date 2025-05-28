@@ -95,3 +95,35 @@ We currently support the following languages
 | ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/ua.svg) | Ukrainian |
 | ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/tr.svg) | Turkish |
 | ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/br.svg) | Português (Brazil) |
+
+## Screenshots
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/01-overview-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/01-overview-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/02-inbounds-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/02-inbounds-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/03-add-inbound-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/03-add-inbound-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/04-add-client-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/04-add-client-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/05-settings-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/05-settings-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/06-configs-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/06-configs-light.png">
+</picture>
