@@ -80,3 +80,118 @@ When using, just enter your `domain name`, `email`, and `API KEY`. The diagram i
 * **Description**: Should [fail2ban](https://github.com/fail2ban/fail2ban) be working
 * **Type**: `boolean`
 * **Default value**: `true`
+
+## Reverse Proxy
+
+### Nginx
+
+To configure the reverse proxy, add the following paths to your nginx config
+
+```nginx
+location / {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Range $http_range;
+    proxy_set_header If-Range $http_if_range; 
+    proxy_redirect off;
+    proxy_pass http://127.0.0.1:2053;
+}
+```
+
+> [!NOTE]
+> The URL in the panel settings needs to end with /.
+
+For the subscriptions
+
+```nginx
+location /sub {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Range $http_range;
+    proxy_set_header If-Range $http_if_range; 
+    proxy_redirect off;
+    proxy_pass http://127.0.0.1:2053;
+}
+```
+
+> [!NOTE]
+> Ensure that the "URI Path" in the /sub panel settings is the same.
+
+### Caddy
+
+> [!IMPORTANT]
+> A huge thanks to [@Gill-Bates](https://github.com/Gill-Bates) for providing the config
+
+> [!IMPORTANT]
+> This configuration will work when the “WebSocket” transport is set inbound
+
+Before configuring `caddyfile`, make sure that the following parameters are set in the panel setup
+
+![Screenshot](https://github.com/user-attachments/assets/c1914df0-ec9f-47ad-8f56-fb872be75fa0)
+
+After customizing the panel, modify the caddyfile as follows
+
+```caddyfile
+vpn.example.com {
+
+    encode gzip
+
+    # TLS 1.3 mandatory!
+    tls {
+        protocols tls1.3
+    }
+
+    # Protect your GUI with Basic Auth
+    route /admin* {
+        basic_auth {
+            admin ******
+        }
+        reverse_proxy xx.xx.xx.xx:2053
+    }
+
+    # Obfuscate the Endpoint
+    route /api/v1* {
+        @websockets {
+            header Connection *Upgrade*
+            header Upgrade websocket
+        }
+        reverse_proxy @websockets xx.xx.xx.xx:54321
+        respond "Forbidden" 403
+    }
+
+    # Security Header
+    header {
+        header_up Authorization { >Authorization }
+        header_up Content-Type { >Content-Type }
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options nosniff
+        X-Frame-Options SAMEORIGIN
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+        -X-Powered-By
+    }
+
+    # Fallback
+    respond "Not found!" 404
+}
+```
+
+The following data must be replaced in the config:
+
+* `vpn.example.com` -> your domain.
+* `admin *****` -> replace the asterisks with your password.
+
+If you do not need HTTP Auth, remove the following line
+
+```caddyfile
+basic_auth {
+    admin ******
+}
+```
+
+* `reverse_proxy xx.xx.xx.xx` -> replace the `xx.xx.xx.xx` with your IP
+* `reverse_proxy @websockets xx.xx.xx.xx:54321` -> replace `54321` with your inbound port
