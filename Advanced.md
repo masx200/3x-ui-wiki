@@ -64,3 +64,30 @@ Enter the user ID in input field number 4. The Telegram accounts with this id wi
 Use this [bot](https://t.me/useridinfobot), Start the bot and it will give you the Telegram user ID.
 
 ![User ID](https://github.com/MHSanaei/3x-ui/raw/main/media/user-id.png)
+
+## Setting Cloudflare WARP
+
+### What is it?
+
+Cloudflare WARP is a free service developed by Cloudflare that enhances internet security and performance by masking traffic between your server and the internet. WARP is required for the following cases:
+- When you need to hide the IP address of a server.
+- When some services do not open.
+
+### Setup
+
+1. Open the panel and go to `Xray Setting`.
+2. Open `Outbounds` tab, click `WARP` and `Create` button.
+
+![image](https://github.com/user-attachments/assets/6fdeee5a-f0f4-424b-99e5-68c29bc01611)|
+
+We have created a WARP profile, but not set `WARP` outbound. To create an outbound to which we will redirect traffic, click `Add outbound` and close the dialog box
+
+### Redirect trafic to WARP
+
+1. Open the panel and go to `Xray Setting`.
+2. Open `Routing Rules` and click `Add Rule`.
+3. Add the following rule
+
+![image](https://github.com/user-attachments/assets/3570af28-d958-449d-bf0b-0122ece82851)
+
+In this rule, we redirect all traffic from Reddit and Google (and all its services) to WARP outbound
