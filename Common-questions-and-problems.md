@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article was written on June 27, 2024 and much in it may not be relevant 
+
 ## 1.  Server Update
 
 Usually, the first step on a Linux server is to update and upgrade the server.
