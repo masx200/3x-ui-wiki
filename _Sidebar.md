@@ -15,6 +15,7 @@
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
 * [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
 * [🛜 Explore API](https://github.com/MHSanaei/3x-ui/wiki/Configuration#api)
+* [🌎 Geosites](https://github.com/MHSanaei/3x-ui/wiki/Configuration#geosites)
 ##### Advanced
 * [💭 Setting Telegram bot](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-telegram-bot)
 * [➡️ Setting Cloudflare WARP](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-cloudflare-warp)
