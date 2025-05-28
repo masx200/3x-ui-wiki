@@ -14,7 +14,7 @@
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
 * [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
 ##### Advanced
-* 💭 Setting Telegram bot
+* [💭 Setting Telegram bot](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-telegram-bot)
 * ➡️ Setting Cloudflare WARP
 * ➡️ Setting TOR proxy
 ##### Deprecated
