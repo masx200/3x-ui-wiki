@@ -10,6 +10,7 @@
 * [⬇️ Installation (Docker)](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended)
 ##### Configuration
 * [🔐 Getting SSL certificate](https://github.com/MHSanaei/3x-ui/wiki/Configuration#getting-ssl)
+* [🛡️ Setting Fail2Ban](https://github.com/MHSanaei/3x-ui/wiki/Configuration#setting-fail2ban)
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
 * [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
 ##### Deprecated
