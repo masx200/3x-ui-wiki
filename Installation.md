@@ -53,7 +53,7 @@ $ docker compose up -d
 > After logging in, **immediately** change the administrator credentials in the panel settings (`Panel Settings > Authentication`)
 
 > [!TIP]
-> It is also recommended to set up two-factor authentication for complete security
+> It is also recommended to set up two-factor authentication and set up another panel web path for complete security
 
 #### Update
 
