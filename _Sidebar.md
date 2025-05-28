@@ -5,6 +5,7 @@
 * [⚙️ Supported Architectures](https://github.com/MHSanaei/3x-ui/wiki#supported-architectures)
 * [🔨 Supported OS](https://github.com/MHSanaei/3x-ui/wiki#supported-os)
 * [🌐 Supported Languages](https://github.com/MHSanaei/3x-ui/wiki#supported-languages)
+* [🖼️ Screenshots](https://github.com/MHSanaei/3x-ui/wiki#screenshots)
 ##### Setup
 * [⬇️ Installation (One-line)](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-in-one-line)
 * [⬇️ Installation (Docker)](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended)
