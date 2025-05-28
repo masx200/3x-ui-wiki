@@ -44,6 +44,17 @@ services:
 $ docker compose up -d
 ```
 
+6. Open url `http://<your-ip>:2053` and log in to the panel. The credentials are as follows:
+
+- 👤 Username: `admin`
+- 🔑 Password: `admin`
+
+> [!CAUTION]
+> After logging in, **immediately** change the administrator credentials in the panel settings (`Panel Settings > Authentication`)
+
+> [!TIP]
+> It is also recommended to set up two-factor authentication for complete security
+
 #### Update
 
 If an update is needed, disable the container and push the new version of the image with the following commands
@@ -115,6 +126,7 @@ $ rm 3x-ui -rf
 $ bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/refs/tags/v2.6.0/install.sh)
 ```
 3. Go through the panel setup
+4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
 
 ## Manual installation
 
