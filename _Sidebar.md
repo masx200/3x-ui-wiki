@@ -1,9 +1,9 @@
 #### 3X-UI
 ##### Overview
 * [🏠 Home](https://github.com/MHSanaei/3x-ui/wiki)
-* [💻 Features](https://github.com/MHSanaei/3x-ui/wiki)
-* [⚙️ Supported Architectures](https://github.com/MHSanaei/3x-ui/wiki/Installation#supported-architectures)
-* [🔨 Supported OS](https://github.com/MHSanaei/3x-ui/wiki/Installation#supported-os)
+* [💻 Features](https://github.com/MHSanaei/3x-ui/wiki#features)
+* [⚙️ Supported Architectures](https://github.com/MHSanaei/3x-ui/wiki#supported-architectures)
+* [🔨 Supported OS](https://github.com/MHSanaei/3x-ui/wiki#supported-os)
 ##### Setup
 * [⬇️ Installation (One-line)](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-in-one-line)
 * [⬇️ Installation (Docker)](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended)
