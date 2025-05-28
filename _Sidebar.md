@@ -1,4 +1,4 @@
-#### 3X-UI
+### 3X-UI
 ##### Overview
 * [🏠 Home](https://github.com/MHSanaei/3x-ui/wiki)
 * [💻 Features](https://github.com/MHSanaei/3x-ui/wiki#features)
@@ -11,5 +11,6 @@
 ##### Configuration
 * [🔐 Getting SSL certificate](https://github.com/MHSanaei/3x-ui/wiki/Configuration#getting-ssl)
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
+* [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
 ##### Deprecated
 * [❓ Common Questions & Problems](https://github.com/MHSanaei/3x-ui/wiki/Common-questions-and-problems)
