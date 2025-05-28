@@ -78,7 +78,7 @@ Cloudflare WARP is a free service developed by Cloudflare that enhances internet
 1. Open the panel and go to `Xray Setting`.
 2. Open `Outbounds` tab, click `WARP` and `Create` button.
 
-![image](https://github.com/user-attachments/assets/6fdeee5a-f0f4-424b-99e5-68c29bc01611)|
+![image](https://github.com/user-attachments/assets/6fdeee5a-f0f4-424b-99e5-68c29bc01611)
 
 We have created a WARP profile, but not set `WARP` outbound. To create an outbound to which we will redirect traffic, click `Add outbound` and close the dialog box
 
