@@ -269,3 +269,39 @@ To enable the IP Limit functionality, you need to install `fail2ban` and its req
 - `client.email` for Shadowsocks
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5%26entityType%3Dcollection%26workspaceId%3Dd64f609f-485a-4951-9b8f-876b3f917124)
+
+## Geosites
+
+### What is it?
+
+The Geosites in Xray-core play a key role in traffic routing, enabling flexible control over traffic distribution based on the geographical location of IP addresses and domains. Here are their main files:
+
+* `geoip.dat` contains a database of IP addresses classified by country (e.g., `geoip:cn` for China or `geoip:private` for private networks). This allows:
+
+  * Redirecting traffic for specific countries (e.g., Chinese IPs via direct, others via proxy).
+
+  * Blocking or allowing access to IPs from certain regions.
+
+* `geosite.dat` includes domain lists grouped by categories (e.g., `geosite:cn` for Chinese domains, `geosite:google` for Google services). This is used for:
+
+  * Granular traffic control (e.g., ad domains → block, streaming → proxy).
+
+### Sources
+
+3X-UI uses multiple geofiles sources for flexible traffic routing:
+
+| Repository | Files | Available geosites |
+| - | - | - |
+| [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | `geoip.dat` <br /> `geosite.dat` | [View](https://github.com/v2fly/domain-list-community/tree/master/data) |
+| [🇮🇷 chocolate4u/Iran-v2ray-rules](https://github.com/chocolate4u/Iran-v2ray-rules) | `geoip_IR.dat` <br /> `geosite_IR.dat` | [View](https://github.com/chocolate4u/Iran-v2ray-rules?tab=readme-ov-file#page_with_curl-categories) |
+| [🇷🇺 runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat) | `geoip_RU.dat` <br /> `geosite_RU.dat` | [View](https://github.com/runetfreedom/russia-v2ray-rules-dat?tab=readme-ov-file#%D0%BA%D0%B0%D0%BA%D0%B8%D0%B5-%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%81%D1%8F-%D0%B2-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0%D1%85) |
+
+### Updating geofiles
+
+1. Open panel and click to Xray version
+
+![image](https://github.com/user-attachments/assets/1f86d21b-c1a7-4268-9031-1cb5179dc38d)
+
+2. Open `Geofiles` dropdown and update the needed geofile
+
+![image](https://github.com/user-attachments/assets/6765b54d-3858-4fd3-b75b-17b5bc2b983f)
