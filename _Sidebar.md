@@ -13,7 +13,7 @@
 * [🛡️ Setting Fail2Ban](https://github.com/MHSanaei/3x-ui/wiki/Configuration#setting-fail2ban)
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
 * [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
-* [🛜 API](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
+* [🛜 Explore API](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
 ##### Advanced
 * [💭 Setting Telegram bot](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-telegram-bot)
 * ➡️ Setting Cloudflare WARP
