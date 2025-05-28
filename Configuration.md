@@ -195,3 +195,42 @@ basic_auth {
 
 * `reverse_proxy xx.xx.xx.xx` -> replace the `xx.xx.xx.xx` with your IP
 * `reverse_proxy @websockets xx.xx.xx.xx:54321` -> replace `54321` with your inbound port
+
+## Setting Fail2Ban
+
+> [!NOTE]
+> IP Limit won't work correctly when using IP Tunnel.
+
+### **For versions up to `v1.6.1`:**
+
+The IP limit is built-in to the panel
+
+### **For versions `v1.7.0` and newer:**
+
+To enable the IP Limit functionality, you need to install `fail2ban` and its required files by following these steps:
+
+1. Run the `x-ui` command in the terminal, then choose `IP Limit Management`.
+2. You will see the following options:
+
+   - **Change Ban Duration:** Adjust the duration of bans.
+   - **Unban Everyone:** Lift all current bans.
+   - **Check Logs:** Review the logs.
+   - **Fail2ban Status:** Check the status of `fail2ban`.
+   - **Restart Fail2ban:** Restart the `fail2ban` service.
+   - **Uninstall Fail2ban:** Uninstall Fail2ban with configuration.
+
+3. Add a path for the access log on the panel by setting `Xray Configs/log/Access log` to `./access.log` then save and restart xray.
+
+- **For versions before `v2.1.3`:**
+  - You need to set the access log path manually in your Xray configuration:
+
+    ```sh
+    "log": {
+      "access": "./access.log",
+      "dnsLog": false,
+      "loglevel": "warning"
+    },
+    ```
+
+- **For versions `v2.1.3` and newer:**
+  - There is an option for configuring `access.log` directly from the panel.
