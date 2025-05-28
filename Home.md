@@ -76,3 +76,22 @@ Our platform offers compatibility with a diverse range of architectures and devi
 
 * `s390x`: This architecture is commonly used in IBM mainframe computers and offers high performance and reliability for enterprise workloads.
 
+## Supported languages
+
+We currently support the following languages
+
+| Flag | Languages |
+| - | - |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/sa.svg) | Arabic |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/us.svg) | English |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/ir.svg) | Persian |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/cn.svg) | Traditional Chinese |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/cn.svg) | Simplified Chinese |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/jp.svg) | Japanese |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/ru.svg) | Russian |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/vn.svg) | Vietnamese |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/es.svg) | Spanish |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/id.svg) | Indonesian |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/ua.svg) | Ukrainian |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/tr.svg) | Turkish |
+| ![Flag](https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/br.svg) | Português (Brazil) |
