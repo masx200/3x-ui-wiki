@@ -7,7 +7,7 @@
 * [🌐 Supported Languages](https://github.com/MHSanaei/3x-ui/wiki#supported-languages)
 * [🖼️ Screenshots](https://github.com/MHSanaei/3x-ui/wiki#screenshots)
 ##### Setup
-* [⬇️ Installation (One-line)](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-in-one-line)
+* [⬇️ Installation (One-line)](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-in-one-line-recommended)
 * [⬇️ Installation (Docker)](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended)
 ##### Configuration
 * [🔐 Getting SSL certificate](https://github.com/MHSanaei/3x-ui/wiki/Configuration#getting-ssl)
