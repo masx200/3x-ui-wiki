@@ -1,3 +1,13 @@
+## Install in one-line (recommended)
+
+1. Install the necessary tools to run the script: `curl` (if needed)
+2. Open shell and enter this command
+```bash
+$ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+```
+3. Go through the panel setup
+4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
+
 ## Docker (recommended)
 
 1. Before installing Docker, install the following tools using your package manager: `curl`, `nano` (if necessary)
@@ -118,15 +128,21 @@ $ docker system prune -a
 $ rm 3x-ui -rf
 ```
 
-## Install in one-line
+## Install another version
+
+> [!CAUTION]
+> This method is not recommended. Always use the latest version.
 
 1. Install the necessary tools to run the script: `curl` (if needed)
+
 2. Open shell and enter this command
 ```bash
-$ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+$ VERSION=v2.5.5 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
 ```
+
+The required version is specified in the `VERSION` variable, e.g. `v2.5.5`.
+
 3. Go through the panel setup
-4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
 
 ## Manual installation
 
@@ -174,19 +190,3 @@ systemctl daemon-reload
 systemctl enable x-ui
 systemctl restart x-ui
 ```
-
-## Install another version
-
-> [!CAUTION]
-> This method is not recommended. Always use the latest version.
-
-1. Install the necessary tools to run the script: `curl` (if needed)
-
-2. Open shell and enter this command
-```bash
-$ VERSION=v2.5.5 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
-```
-
-The required version is specified in the `VERSION` variable, e.g. `v2.5.5`.
-
-3. Go through the panel setup
