@@ -38,15 +38,15 @@ The management script includes a built-in SSL certificate application for Cloudf
 2. Visit the link: [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).
 3. Click on "View Global API Key" (see the screenshot below):
 
-![](https://github.com/MHSanaei/3x-ui/raw/main/media/APIKey1.PNG)
+![image](https://github.com/user-attachments/assets/186cb8fc-48c2-438c-9582-58e38f034d82)
 
 4. You may need to re-authenticate your account. After that, the API Key will be shown (see the screenshot below):
 
-![](https://github.com/MHSanaei/3x-ui/raw/main/media/APIKey2.png)
+![image](https://github.com/user-attachments/assets/c457b7e4-e092-4e10-84f4-7c76b8692836)
 
 When using, just enter your `domain name`, `email`, and `API KEY`. The diagram is as follows:
 
-![](https://github.com/MHSanaei/3x-ui/raw/main/media/DetailEnter.png)
+![image](https://github.com/user-attachments/assets/5557cf09-7182-4271-bfd7-6e60354761b5)
 
 ## Available environment variables
 
