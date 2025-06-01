@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/3x-ui-dark.png">
-    <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/3x-ui-light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b9b85e2b-c652-4a98-95e6-238246fc7e01">
+    <img alt="3x-ui" src="https://github.com/user-attachments/assets/6cc46bfd-8e7a-4ccb-931e-a7e03f1a4354">
   </picture>
 </p>
 
@@ -109,13 +109,13 @@ We currently support the following languages
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/03-add-inbound-dark.png">
-  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/03-add-inbound-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/981e27c4-f804-4aeb-b4e3-22ee50dff191">
+  <img alt="3x-ui" src="https://github.com/user-attachments/assets/ca7f37c5-66e5-4b79-8c78-4342c96ed6ee">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/04-add-client-dark.png">
-  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/04-add-client-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/26a242ff-5100-4605-a8f4-51b78b2db3c0">
+  <img alt="3x-ui" src="https://github.com/user-attachments/assets/1c333da5-ce50-4811-b606-ae79329321da">
 </picture>
 
 <picture>
