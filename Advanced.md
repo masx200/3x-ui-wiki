@@ -5,8 +5,8 @@
 The web panel supports daily traffic, panel login, database backup, system status, client info, and other notification and functions through the Telegram Bot. 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/6e918166-49c4-4bc6-9251-a330c1fdd796">
-  <img alt="3x-ui" src="https://github.com/user-attachments/assets/5d7c7d06-97b3-46bc-b314-375eea4bfe7b">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/MHSanaei/3x-ui/raw/main/media/07-bot-dark.png">
+  <img alt="3x-ui" src="https://github.com/MHSanaei/3x-ui/raw/main/media/07-bot-light.png">
 </picture>
 
 To use the bot, you need to set the bot-related parameters in the panel, including:
@@ -49,11 +49,11 @@ To use the bot, you need to set the bot-related parameters in the panel, includi
 
 - Start [Botfather](https://t.me/BotFather) in your Telegram account:
 
-![Botfather](https://github.com/user-attachments/assets/b2d11d8f-62db-474a-8a3b-42b57e873dc6)
+![Botfather](https://github.com/MHSanaei/3x-ui/raw/main/media/botfather.png)
 
 - Create a new Bot using /newbot command: It will ask you 2 questions, A name and a username for your bot. Note that the username has to end with the word "bot".
 
-![Create new bot](https://github.com/user-attachments/assets/c1a49368-3747-44e7-ae72-0d78b192c7e3)
+![Create new bot](https://github.com/MHSanaei/3x-ui/raw/main/media/newbot.png)
 
 - Start the bot you've just created. You can find the link to your bot here.
 
@@ -61,7 +61,7 @@ To use the bot, you need to set the bot-related parameters in the panel, includi
 
 - Enter your panel and config Telegram bot settings like below:
 
-![Panel Config](https://github.com/user-attachments/assets/5a79e1d9-52e9-412f-93b2-506e23b4da60)
+![Panel Config](https://github.com/MHSanaei/3x-ui/raw/main/media/panel-bot-config.png)
 
 Enter your bot token in input field number 3.
 Enter the user ID in input field number 4. The Telegram accounts with this id will be the bot admin. (You can enter more than one, Just separate them with ,)
@@ -70,7 +70,7 @@ Enter the user ID in input field number 4. The Telegram accounts with this id wi
  
 Use this [bot](https://t.me/useridinfobot), Start the bot and it will give you the Telegram user ID.
 
-![User ID Info bot](https://github.com/user-attachments/assets/93fccdca-c3e1-4fb2-8e4e-16aa7fb009aa)
+![User ID](https://github.com/MHSanaei/3x-ui/raw/main/media/user-id.png)
 
 ## Setting Cloudflare WARP
 
