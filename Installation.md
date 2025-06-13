@@ -32,12 +32,13 @@ $ cd panel
 `compose.yml`
 ```yml
 services:
-  panel:
+  3xui:
     image: ghcr.io/mhsanaei/3x-ui:latest
     container_name: 3xui_app
+    # hostname: yourhostname <- optional
     volumes:
-      - ~/panel/db/:/etc/x-ui/
-      - ~/panel/cert/:/root/cert/
+      - $PWD/db/:/etc/x-ui/
+      - $PWD/cert/:/root/cert/
     environment:
       XRAY_VMESS_AEAD_FORCED: "false"
       XUI_ENABLE_FAIL2BAN: "true"
@@ -45,8 +46,6 @@ services:
     network_mode: host
     restart: unless-stopped
 ```
-
-
 
 5. Start the Docker container using the following command.
 
