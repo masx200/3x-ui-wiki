@@ -127,6 +127,23 @@ $ docker system prune -a
 $ rm 3x-ui -rf
 ```
 
+### Using development build
+
+3. Install the `git` package using your package manager.
+
+4. Clone repository and go to repository folder
+
+```bash
+$ git clone https://github.com/MHSanaei/3x-ui.git
+$ cd 3x-ui
+```
+
+5. Start the Docker container using the following command. In this case, the Docker image will be built first and then the container will be started.
+
+```bash
+$ docker compose up -d
+```
+
 ## Install another version
 
 > [!CAUTION]
