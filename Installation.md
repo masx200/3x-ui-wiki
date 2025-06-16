@@ -3,7 +3,7 @@
 1. Install the necessary tools to run the script: `curl` (if needed)
 2. Open shell and enter this command
 ```bash
-$ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 3. Go through the panel setup
 4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
@@ -15,7 +15,7 @@ $ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/instal
 2. Install Docker using the official script
 
 ```bash
-$ bash <(curl -sSL https://get.docker.com)
+bash <(curl -sSL https://get.docker.com)
 ```
 
 ### Using Docker Compose
@@ -23,8 +23,8 @@ $ bash <(curl -sSL https://get.docker.com)
 3. Create a `panel` folder and go to this folder
 
 ```bash
-$ mkdir panel
-$ cd panel
+mkdir panel
+cd panel
 ```
 
 4. Create and edit the `compose.yml` file using `nano` or another editor. Insert the following contents into the file:
@@ -50,7 +50,7 @@ services:
 5. Start the Docker container using the following command.
 
 ```bash
-$ docker compose up -d
+docker compose up -d
 ```
 
 6. Open url `http://<your-ip>:2053` and log in to the panel. The credentials are as follows:
@@ -69,9 +69,9 @@ $ docker compose up -d
 If an update is needed, disable the container and push the new version of the image with the following commands
 
 ```bash
-$ docker compose down
-$ docker compose pull
-$ docker compose up -d
+docker compose down
+docker compose pull
+docker compose up -d
 ```
 
 #### Delete
@@ -79,9 +79,9 @@ $ docker compose up -d
 If you want to delete a container, execute the following commands
 
 ```bash
-$ docker compose down
-$ docker system prune -a
-$ rm panel -rf
+docker compose down
+docker system prune -a
+rm panel -rf
 ```
 
 ### Using CLI
@@ -89,15 +89,15 @@ $ rm panel -rf
 3. Execute the following command
 
 ```bash
-$ docker run -itd \
-   -e XRAY_VMESS_AEAD_FORCED=false \
-   -e XUI_ENABLE_FAIL2BAN=true \
-   -v $PWD/db/:/etc/x-ui/ \
-   -v $PWD/cert/:/root/cert/ \
-   --network=host \
-   --restart=unless-stopped \
-   --name 3x-ui \
-   ghcr.io/mhsanaei/3x-ui:latest
+docker run -itd \
+ -e XRAY_VMESS_AEAD_FORCED=false \
+ -e XUI_ENABLE_FAIL2BAN=true \
+ -v $PWD/db/:/etc/x-ui/ \
+ -v $PWD/cert/:/root/cert/ \
+ --network=host \
+ --restart=unless-stopped \
+ --name 3x-ui \
+ ghcr.io/mhsanaei/3x-ui:latest
 ```
 
 #### Update
@@ -105,14 +105,14 @@ $ docker run -itd \
 If an update is needed, disable the container and push the new version of the image with the following commands
 
 ```bash
-$ docker ps -a
+docker ps -a
 ```
 
 With this command, we find out the ID of the container on which the panel is running. Next, we stop our container and pull down the image:
 
 ```bash
-$ docker container stop <container_id>
-$ docker image pull ghcr.io/mhsanaei/3x-ui
+docker container stop <container_id>
+docker image pull ghcr.io/mhsanaei/3x-ui
 ```
 
 After that, we execute the command from step 3.
@@ -122,9 +122,9 @@ After that, we execute the command from step 3.
 If you want to delete a container, execute the following commands
 
 ```bash
-$ docker container stop <container_id>
-$ docker system prune -a
-$ rm 3x-ui -rf
+docker container stop <container_id>
+docker system prune -a
+rm 3x-ui -rf
 ```
 
 ### Using development build
@@ -134,14 +134,14 @@ $ rm 3x-ui -rf
 4. Clone repository and go to repository folder
 
 ```bash
-$ git clone https://github.com/MHSanaei/3x-ui.git
-$ cd 3x-ui
+git clone https://github.com/MHSanaei/3x-ui.git
+cd 3x-ui
 ```
 
 5. Start the Docker container using the following command. In this case, the Docker image will be built first and then the container will be started.
 
 ```bash
-$ docker compose up -d
+docker compose up -d
 ```
 
 ## Install another version
@@ -153,7 +153,7 @@ $ docker compose up -d
 
 2. Open shell and enter this command
 ```bash
-$ VERSION=v2.5.5 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
+VERSION=v2.5.5 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
 ```
 
 The required version is specified in the `VERSION` variable, e.g. `v2.5.5`.
