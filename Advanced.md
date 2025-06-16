@@ -113,7 +113,7 @@ Tor, short for The Onion Router, is a free and open-source software designed to 
 1. Open terminal and run this command
 
 ```bash
-$ docker run --restart unless-stopped -i -t -p 9050:9050 dperson/torproxy
+docker run --restart unless-stopped -i -t -p 9050:9050 dperson/torproxy
 ```
 
 This will start a SOCKS5 proxy with TOR, now it needs to be configured in the panel
