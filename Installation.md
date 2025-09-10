@@ -8,7 +8,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 3. Go through the panel setup
 4. Once configured, go to `http://<your-ip>:<your-port>` and log in with the credentials that were issued by the panel after installation
 
-## Docker (recommended)
+## Docker
 
 1. Before installing Docker, install the following tools using your package manager: `curl`, `nano` (if necessary)
 
