@@ -235,38 +235,97 @@ To enable the IP Limit functionality, you need to install `fail2ban` and its req
 - **For versions `v2.1.3` and newer:**
   - There is an option for configuring `access.log` directly from the panel.
 
-## API
+---
 
-- [API Documentation](https://www.postman.com/hsanaei/3x-ui/collection/q1l5l0u/3x-ui)
-- `/login` with `POST` user data: `{username: '', password: ''}` for login
-- `/panel/api/inbounds` base for following actions:
+# API Documentation
 
-| Method | Path                               | Action                                      |
-| :----: | ---------------------------------- | ------------------------------------------- |
-| `GET`  | `"/list"`                          | Get all inbounds                            |
-| `GET`  | `"/get/:id"`                       | Get inbound with inbound.id                 |
-| `GET`  | `"/getClientTraffics/:email"`      | Get Client Traffics with email              |
-| `GET`  | `"/getClientTrafficsById/:id"`     | Get client's traffic By ID |
-| `GET`  | `"/createbackup"`                  | Telegram bot sends backup to admins         |
-| `POST` | `"/add"`                           | Add inbound                                 |
-| `POST` | `"/del/:id"`                       | Delete Inbound                              |
-| `POST` | `"/update/:id"`                    | Update Inbound                              |
-| `POST` | `"/clientIps/:email"`              | Client Ip address                           |
-| `POST` | `"/clearClientIps/:email"`         | Clear Client Ip address                     |
-| `POST` | `"/addClient"`                     | Add Client to inbound                       |
-| `POST` | `"/:id/delClient/:clientId"`       | Delete Client by clientId\*                 |
-| `POST` | `"/updateClient/:clientId"`        | Update Client by clientId\*                 |
-| `POST` | `"/:id/resetClientTraffic/:email"` | Reset Client's Traffic                      |
-| `POST` | `"/resetAllTraffics"`              | Reset traffics of all inbounds              |
-| `POST` | `"/resetAllClientTraffics/:id"`    | Reset traffics of all clients in an inbound |
-| `POST` | `"/delDepletedClients/:id"`        | Delete inbound depleted clients (-1: all)   |
-| `POST` | `"/onlines"`                       | Get Online users ( list of emails )         |
+## Authentication
 
-\*- The field `clientId` should be filled by:
+* **Endpoint**: `/login`
+* **Method**: `POST`
+* **Body**:
 
-- `client.id` for VMESS and VLESS
-- `client.password` for TROJAN
-- `client.email` for Shadowsocks
+  ```json
+  {
+    "username": "",
+    "password": ""
+  }
+  ```
+* Use this endpoint to authenticate and receive a session.
+
+---
+
+## Inbounds API
+
+Base path: **`/panel/api/inbounds`**
+
+| Method | Path                             | Description                                  |
+| :----: | -------------------------------- | -------------------------------------------- |
+|  `GET` | `/list`                          | Get all inbounds                             |
+|  `GET` | `/get/:id`                       | Get inbound by ID                            |
+|  `GET` | `/getClientTraffics/:email`      | Get client traffics by email                 |
+|  `GET` | `/getClientTrafficsById/:id`     | Get client traffics by inbound ID            |
+| `POST` | `/add`                           | Add new inbound                              |
+| `POST` | `/del/:id`                       | Delete inbound by ID                         |
+| `POST` | `/update/:id`                    | Update inbound by ID                         |
+| `POST` | `/clientIps/:email`              | Get client IP addresses                      |
+| `POST` | `/clearClientIps/:email`         | Clear client IP addresses                    |
+| `POST` | `/addClient`                     | Add client to inbound                        |
+| `POST` | `/:id/delClient/:clientId`       | Delete client by clientId\*                  |
+| `POST` | `/updateClient/:clientId`        | Update client by clientId\*                  |
+| `POST` | `/:id/resetClientTraffic/:email` | Reset a client’s traffic usage               |
+| `POST` | `/resetAllTraffics`              | Reset traffics for all inbounds              |
+| `POST` | `/resetAllClientTraffics/:id`    | Reset traffics for all clients in inbound    |
+| `POST` | `/delDepletedClients/:id`        | Delete depleted clients in inbound (-1: all) |
+| `POST` | `/import`                        | Import inbound configuration                 |
+| `POST` | `/onlines`                       | Get currently online clients (emails list)   |
+| `POST` | `/lastOnline`                    | Get last online status of clients            |
+| `POST` | `/updateClientTraffic/:email`    | Update traffic for specific client           |
+
+\* **clientId mapping**:
+
+* `client.id` → VMESS / VLESS
+* `client.password` → TROJAN
+* `client.email` → Shadowsocks
+
+---
+
+## Server API
+
+Base path: **`/panel/api/server`**
+
+| Method | Path                       | Description                                   |
+| :----: | -------------------------- | --------------------------------------------- |
+|  `GET` | `/status`                  | Get server status                             |
+|  `GET` | `/getXrayVersion`          | Get available Xray versions                   |
+|  `GET` | `/getConfigJson`           | Download current config.json                  |
+|  `GET` | `/getDb`                   | Download database file (`x-ui.db`)            |
+|  `GET` | `/getNewUUID`              | Generate new UUID                             |
+|  `GET` | `/getNewX25519Cert`        | Generate new X25519 certificate               |
+|  `GET` | `/getNewmldsa65`           | Generate new ML-DSA-65 certificate            |
+|  `GET` | `/getNewmlkem768`          | Generate new ML-KEM-768 key pair              |
+|  `GET` | `/getNewVlessEnc`          | Generate new VLESS encryption keys            |
+| `POST` | `/stopXrayService`         | Stop Xray service                             |
+| `POST` | `/restartXrayService`      | Restart Xray service                          |
+| `POST` | `/installXray/:version`    | Install/Update Xray to given version          |
+| `POST` | `/updateGeofile`           | Update GeoIP/GeoSite data files               |
+| `POST` | `/updateGeofile/:fileName` | Update specific Geo file                      |
+| `POST` | `/logs/:count`             | Get system logs (with `level`, `syslog`)      |
+| `POST` | `/xraylogs/:count`         | Get Xray logs (with filters)                  |
+| `POST` | `/importDB`                | Import database                               |
+| `POST` | `/getNewEchCert`           | Generate new ECH certificate (requires `sni`) |
+
+---
+
+## Extra API
+
+Base path: **`/panel/api`**
+
+| Method | Path             | Description                               |
+| :----: | ---------------- | ----------------------------------------- |
+|  `GET` | `/backuptotgbot` | Backup DB/config and send to Telegram Bot |
+
+---
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D5146551-dda3cab3-0e33-485f-96f9-d4262f437ac5%26entityType%3Dcollection%26workspaceId%3Dd64f609f-485a-4951-9b8f-876b3f917124)
 
