@@ -239,6 +239,8 @@ To enable the IP Limit functionality, you need to install `fail2ban` and its req
 
 # API Documentation
 
+- [API Documentation](https://www.postman.com/hsanaei/3x-ui/collection/q1l5l0u/3x-ui)
+
 ## Authentication
 
 * **Endpoint**: `/login`
