@@ -144,7 +144,7 @@ cd 3x-ui
 docker compose up -d
 ```
 
-## Install another version
+## Install Legacy version
 
 > [!CAUTION]
 > This method is not recommended. Always use the latest version.
