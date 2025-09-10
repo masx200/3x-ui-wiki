@@ -2,8 +2,8 @@
 ##### Overview
 * [🏠 Home](https://github.com/MHSanaei/3x-ui/wiki)
 * [💻 Features](https://github.com/MHSanaei/3x-ui/wiki#features)
-* [⚙️ Supported Architectures](https://github.com/MHSanaei/3x-ui/wiki#supported-architectures)
 * [🔨 Supported OS](https://github.com/MHSanaei/3x-ui/wiki#supported-os)
+* [⚙️ Supported Architectures](https://github.com/MHSanaei/3x-ui/wiki#supported-architectures)
 * [🌐 Supported Languages](https://github.com/MHSanaei/3x-ui/wiki#supported-languages)
 * [🖼️ Screenshots](https://github.com/MHSanaei/3x-ui/wiki#screenshots)
 ##### Setup
