@@ -19,7 +19,7 @@ As an enhanced fork of the original X-UI project, 3X-UI provides improved stabil
 * System Status Monitoring
 * Search within all inbounds and clients
 * Supports multi-user and multi-protocol
-* Supports protocols, including `VMESS`, `VLESS`, `Trojan`, `Shadowsocks`, `Dokodemo-door`, `SOCKS5`, `HTTP`, `Wireguard`
+* Supports protocols, including `VMESS`, `VLESS`, `Trojan`, `Shadowsocks`, `Tunnel`, `Mixed`, `HTTP`, `Wireguard`
 * Supports XTLS native Protocols, including `RPRX-Direct`, `Vision`, `REALITY`
 * Traffic statistics, traffic limit, expiration time limit
 * Customizable Xray configuration templates
