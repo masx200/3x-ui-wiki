@@ -39,24 +39,24 @@ As an enhanced fork of the original X-UI project, 3X-UI provides improved stabil
 
 At the moment we support major operating systems, here is the list of OS on which we have tested the panel support
 
-| System | Minimal Version |
-| - | - |
-| Ubuntu | 22.04 |
-| Debian | 12 |
-| CentOS | 8 |
-| OpenEuler | 22.03 |
-| Fedora | 36 |
-| AlmaLinux | 9.5 |
-| Rocky Linux | 9.5 |
-| Oracle Linux | 8 |
-| Amazon Linux | 2023 |
-| Virtuozzo Linux | 8 |
-| Windows | Server 2016 |
-| Arch Linux | — |
-| Parch Linux | — |
-| Manjaro | — |
-| Armbian | — |
-| OpenSUSE | — |
+| System 
+| -
+| Ubuntu
+| Debian
+| CentOS
+| OpenEuler
+| Fedora
+| AlmaLinux
+| Rocky Linux
+| Oracle Linux
+| Amazon Linux
+| Virtuozzo Linux
+| Windows
+| Arch Linux
+| Parch Linux
+| Manjaro
+| Armbian
+| OpenSUSE
 
 ## Supported architectures
 
