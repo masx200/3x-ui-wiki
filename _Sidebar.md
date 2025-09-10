@@ -9,6 +9,8 @@
 ##### Setup
 * [⬇️ Installation (One-line)](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-in-one-line-recommended)
 * [⬇️ Installation (Docker)](https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended)
+* [⬇️ Install Legacy version](https://github.com/MHSanaei/3x-ui/wiki/Installation#install-another-version)
+* [⬇️ Manual installation)](https://github.com/MHSanaei/3x-ui/wiki/Installation#manual-installation)
 ##### Configuration
 * [🔐 Getting SSL certificate](https://github.com/MHSanaei/3x-ui/wiki/Configuration#getting-ssl)
 * [🛡️ Setting Fail2Ban](https://github.com/MHSanaei/3x-ui/wiki/Configuration#setting-fail2ban)
