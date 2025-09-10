@@ -16,7 +16,7 @@
 * [🛡️ Setting Fail2Ban](https://github.com/MHSanaei/3x-ui/wiki/Configuration#setting-fail2ban)
 * [🗝️ Environment variables](https://github.com/MHSanaei/3x-ui/wiki/Configuration#available-environment-variables)
 * [➡️ Using Reverse proxy](https://github.com/MHSanaei/3x-ui/wiki/Configuration#reverse-proxy)
-* [🛜 Explore API](https://github.com/MHSanaei/3x-ui/wiki/Configuration#api)
+* [🛜 API Documentation](https://github.com/MHSanaei/3x-ui/wiki/Configuration#api-documentation)
 * [🌎 Geosites](https://github.com/MHSanaei/3x-ui/wiki/Configuration#geosites)
 ##### Advanced
 * [💭 Setting Telegram bot](https://github.com/MHSanaei/3x-ui/wiki/Advanced#setting-telegram-bot)
