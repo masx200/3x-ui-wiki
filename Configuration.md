@@ -283,6 +283,9 @@ Base path: **`/panel/api/inbounds`**
 | `POST` | `/onlines`                       | Get currently online clients (emails list)   |
 | `POST` | `/lastOnline`                    | Get last online status of clients            |
 | `POST` | `/updateClientTraffic/:email`    | Update traffic for specific client           |
+| `POST` | `/import`                        | import inbound                               |
+| `POST` | `/lastOnline`                    | last Online                                  |
+| `POST` | `/{id}/delClientByEmail/{email}` | Delete Client By Email                       |
 
 \* **clientId mapping**:
 
