@@ -89,15 +89,21 @@ To configure the reverse proxy, add the following paths to your nginx config
 
 ```nginx
 location / {
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header Host $http_host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Range $http_range;
-    proxy_set_header If-Range $http_if_range; 
+    proxy_set_header If-Range $http_if_range;
+
     proxy_redirect off;
     proxy_pass http://127.0.0.1:2053;
 }
+
 ```
 
 > [!NOTE]
@@ -107,6 +113,10 @@ For the subscriptions
 
 ```nginx
 location /sub {
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header Host $http_host;
@@ -115,9 +125,11 @@ location /sub {
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Range $http_range;
     proxy_set_header If-Range $http_if_range;
+
     proxy_redirect off;
     proxy_pass http://127.0.0.1:2096;
 }
+
 ```
 
 > [!NOTE]
